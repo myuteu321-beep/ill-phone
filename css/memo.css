@@ -1,0 +1,53 @@
+/* =========================================================
+   memo.css  —  메모 앱 디자인 (아이폰 메모 느낌)
+   ========================================================= */
+
+.mm-app { position: absolute; inset: 0; background: #f2f2f7; color: #000; font-size: 16px; line-height: 1.4;
+  font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; overflow: hidden; }
+.mm-app button { border: 0; background: none; color: inherit; cursor: pointer; font-family: inherit; padding: 0; }
+
+/* ---------- 목록 ---------- */
+.mm-panel { position: absolute; inset: 0; display: flex; flex-direction: column; background: #f2f2f7; }
+.mm-top { flex: none; padding-top: 54px; }
+.mm-top h1 { margin: 8px 16px 8px; font-size: 34px; font-weight: 700; letter-spacing: -.5px; }
+.mm-search { margin: 0 16px 10px; display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 10px; border-radius: 10px; background: rgba(118, 118, 128, .14); }
+.mm-search svg { width: 17px; height: 17px; stroke: #8a8a8e; flex: none; }
+.mm-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 17px; color: #000; font-family: inherit; }
+.mm-search input::placeholder { color: #8a8a8e; }
+.mm-scroll { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; scrollbar-width: none; padding-bottom: 12px; }
+.mm-scroll::-webkit-scrollbar { display: none; }
+.mm-card { margin: 4px 16px 0; background: #fff; border-radius: 12px; overflow: hidden; }
+.mm-app .mm-row { position: relative; display: block; width: 100%; text-align: left; padding: 10px 16px 11px; }
+.mm-app .mm-row + .mm-row::before { content: ""; position: absolute; left: 16px; right: 0; top: 0; border-top: 1px solid #e5e5ea; }
+.mm-app .mm-row:active { background: #e9e9ee; }
+.mm-row b { display: block; font-size: 16px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mm-row b.none { color: #8a8a8e; font-weight: 500; }
+.mm-row span { display: block; margin-top: 2px; font-size: 14px; color: #8a8a8e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mm-empty { text-align: center; color: #8a8a8e; padding: 80px 30px; }
+
+.mm-bar { flex: none; position: relative; height: 84px; box-sizing: border-box; padding: 12px 20px 26px; display: flex; align-items: flex-start; justify-content: center; background: rgba(242, 242, 247, .97); border-top: 1px solid #d8d8dd; }
+.mm-bar #mm-count { font-size: 12.5px; color: #3c3c43; padding-top: 8px; }
+.mm-app .mm-new { position: absolute; right: 18px; top: 8px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: #e0a800; }
+.mm-new svg { width: 26px; height: 26px; }
+
+/* ---------- 메모 열기 ---------- */
+.mm-detail { position: absolute; inset: 0; z-index: 10; background: #fff; display: none; flex-direction: column; transform: translateX(100%); transition: transform .3s cubic-bezier(.22, .8, .24, 1); }
+.mm-detail.on { display: flex; }
+.mm-detail.show { transform: none; }
+.mm-dtop { flex: none; height: 100px; box-sizing: border-box; padding: 54px 10px 0 6px; display: flex; align-items: center; justify-content: space-between; background: #fff; }
+.mm-app .mm-back { display: flex; align-items: center; height: 42px; color: #e0a800; font-size: 17px; }
+.mm-back svg { width: 24px; height: 24px; }
+.mm-dr { display: flex; align-items: center; gap: 2px; }
+.mm-app .mm-ib { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; color: #e0a800; border-radius: 50%; }
+.mm-app .mm-ib:active { background: #f2f2f7; }
+.mm-ib svg { width: 23px; height: 23px; }
+.mm-app .mm-done { display: none; height: 42px; padding: 0 10px; color: #e0a800; font-size: 17px; font-weight: 600; }
+.mm-detail.editing .mm-done { display: block; }
+.mm-detail.editing .mm-share { display: none; }
+
+.mm-dscroll { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; scrollbar-width: none; }
+.mm-dscroll::-webkit-scrollbar { display: none; }
+.mm-doc { display: flex; flex-direction: column; min-height: 100%; box-sizing: border-box; padding: 6px 20px 60px; }
+.mm-doc input { width: 100%; box-sizing: border-box; border: 0; outline: 0; background: none; padding: 4px 0 6px; font-size: 26px; font-weight: 700; letter-spacing: -.4px; color: #000; font-family: inherit; }
+.mm-doc textarea { width: 100%; box-sizing: border-box; flex: 1 0 auto; min-height: 220px; border: 0; outline: 0; resize: none; background: none; padding: 0; overflow: hidden; font-size: 17px; line-height: 1.55; color: #000; font-family: inherit; }
+.mm-doc input::placeholder, .mm-doc textarea::placeholder { color: #c4c4c7; }
